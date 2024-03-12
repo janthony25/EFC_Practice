@@ -1,5 +1,16 @@
 ﻿@model IEnumerable<Customer>
 
+<div class="container p-4">
+    <div class="row">
+        <div class="col-6">
+            Customer List
+        </div>
+        <div class="col-6">
+            <a asp-controller="Customer" asp-action="Create" class="btn btn-primary">Add New Customer</a>
+        </div>
+    </div>
+
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -31,3 +42,5 @@
         }
     </tbody>
 </table>
+
+</div>
