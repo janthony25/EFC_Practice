@@ -16,5 +16,23 @@ namespace EFC_Practice.Controllers
             IEnumerable<Customer> customer = _db.Customers;
             return View(customer);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Customer obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Customers.Add(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
     }
 }
